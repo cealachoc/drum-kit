@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './styles/Buttons.css'
+import { useEffect } from 'react'
 
 const buttons = [
   {char: 'A', des: 'Boom', sound: require('../sounds/boom.wav')},
@@ -21,15 +22,32 @@ const Buttons = ({ onButtonClick }) => {
     sound.play();
   }
 
+  
   const clickHandler = (char, soundUrl) => {
     setClickedButton(char);
     playSound(soundUrl);
-
+    
     setTimeout(() => {
       setClickedButton(null)
     }, 250);
   }
   
+  const handleKeyClick = (e) => {
+    const {key} = e;
+    const btn = buttons.find((button) => button.char === key.toUpperCase())
+
+    if (btn) {
+      clickHandler(btn.char, btn.sound);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyClick);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyClick)
+    }
+  });
 
   return (
     <div>
