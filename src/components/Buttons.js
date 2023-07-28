@@ -2,15 +2,15 @@ import { useState } from 'react'
 import './styles/Buttons.css'
 
 const buttons = [
-  {char: 'A', des: 'Boom', datakey: '65', sound: require('../sounds/boom.wav')},
-  {char: 'S', des: 'Clap', datakey: '83', sound: require('../sounds/clap.wav')},
-  {char: 'D', des: 'Hi-Hat', datakey: '68', sound: require('../sounds/hihat.wav')},
-  {char: 'F', des: 'Kick', datakey: '70', sound: require('../sounds/kick.wav')},
-  {char: 'G', des: 'Open Hat', datakey: '71', sound: require('../sounds/openhat.wav')},
-  {char: 'H', des: 'Ride', datakey: '72', sound: require('../sounds/ride.wav')},
-  {char: 'J', des: 'Snare', datakey: '74', sound: require('../sounds/snare.wav')},
-  {char: 'K', des: 'Tink',  datakey: '75',sound: require('../sounds/tink.wav')},
-  {char: 'L', des: 'Tom',  datakey: '76',sound: require('../sounds/tom.wav')},
+  {char: 'A', des: 'Boom', sound: require('../sounds/boom.wav')},
+  {char: 'S', des: 'Clap', sound: require('../sounds/clap.wav')},
+  {char: 'D', des: 'Hi-Hat', sound: require('../sounds/hihat.wav')},
+  {char: 'F', des: 'Kick', sound: require('../sounds/kick.wav')},
+  {char: 'G', des: 'Open Hat', sound: require('../sounds/openhat.wav')},
+  {char: 'H', des: 'Ride', sound: require('../sounds/ride.wav')},
+  {char: 'J', des: 'Snare', sound: require('../sounds/snare.wav')},
+  {char: 'K', des: 'Tink', sound: require('../sounds/tink.wav')},
+  {char: 'L', des: 'Tom', sound: require('../sounds/tom.wav')},
 ]
 
 const Buttons = ({ onButtonClick }) => {
