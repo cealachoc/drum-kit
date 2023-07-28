@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './styles/Buttons.css'
 
 const buttons = [
@@ -13,13 +14,20 @@ const buttons = [
 ]
 
 const Buttons = ({ onButtonClick }) => {
+  const [clickedButton, setClickedButton] = useState(null)
+  
   const playSound = (soundUrl) => {
     const sound = new Audio(soundUrl)
     sound.play();
   }
 
   const clickHandler = (char, soundUrl) => {
+    setClickedButton(char);
     playSound(soundUrl);
+
+    setTimeout(() => {
+      setClickedButton(null)
+    }, 250);
   }
   
 
@@ -29,7 +37,7 @@ const Buttons = ({ onButtonClick }) => {
         <button
         key={button.char}
         onClick={() => clickHandler(button.char, button.sound)}
-        className='button' >
+        className={`button ${clickedButton === button.char ? 'playing' : ''}`} >
           {button.char}
           <br />
           <span className='sound'>{button.des}</span>
