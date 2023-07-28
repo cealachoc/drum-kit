@@ -5,15 +5,12 @@ import './styles/Display.css'
 const Display = () => {
   
   const onButtonClick = (e) => {
-    function play(e) {
-      
-    }
+    console.log(e)
   }
   
   return (
     <div>
       <Buttons onButtonClick={onButtonClick}/>
-
     </div>
   )
 }
